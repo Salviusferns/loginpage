@@ -3,9 +3,16 @@ import './App.css';
 import React from 'react';
 
 function App(){
+  const [formData, setFormData] = useState({
+    email: "",
+    passworld: ""
+  })
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
+    
   };
   return (
     <div className='app'>
@@ -16,8 +23,8 @@ function App(){
               <div className='header'>
                 <h1>Login</h1>
               </div>
-              <input type="text" placeholder='Email'/>
-              <input type={passwordShown ? "text" : "password"} placeholder='Password'/>
+              <input value= {formData.email} text="text" placeholder='Email'/>
+              <input type={passwordShown ? "text" : "password"} value={formData.password} placeholder='Password'/>
             </div>
             <div className='check'>
               <input type="checkbox" id='checkbox' onClick={togglePassword}/>
