@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import { useState } from "react";
 import './App.css';
+import React from 'react';
 
-function App() {
+function App(){
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <div className='box'>
+         <div className='input'>
+          <form>
+            <div className='main'>
+              <div className='header'>
+                <h1>Login</h1>
+              </div>
+              <input type="text" placeholder='Email'/>
+              <input type={passwordShown ? "text" : "password"} placeholder='Password'/>
+            </div>
+            <div className='check'>
+              <input type="checkbox" id='checkbox' onClick={togglePassword}/>
+              <label>Show password</label>
+            </div>
+            <div className='footer'>
+              <button>Login</button>
+              <p>not got a account <a href='akjhsakhsa'>click here</a> to create one</p>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+      
+      
   );
 }
 
